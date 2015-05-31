@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'instagram#home'
 
+  get '/oauth/connect' => 'instagram#connect'
+
+  get '/oauth/callback' => 'instagram#callback'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
