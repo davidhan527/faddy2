@@ -11,7 +11,6 @@ class InstagramController < ApplicationController
   def callback
     response = Instagram.get_access_token(params[:code], :redirect_uri => CALLBACK_URL)
     session[:access_token] = response.access_token
-     require 'pry'; binding.pry
-    redirect_to root_path
+    redirect_to :restaurants
   end
 end
