@@ -1,7 +1,6 @@
 class InstagramController < ApplicationController
 
   def home
-
   end
 
   def connect
