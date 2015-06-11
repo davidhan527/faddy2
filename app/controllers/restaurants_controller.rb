@@ -4,6 +4,11 @@ class RestaurantsController < ApplicationController
   end
 
   def instagram_results
-    puts "IM HEREEE"
+    puts "========================================================="
+    respond_to do |format|
+      format.json {}
+    end
+
+    redirect_to :restaurants
   end
 end
