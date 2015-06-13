@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :connect_to_instagram, only: :index
+  before_action :connect_to_instagram, only: [:index, :instagram_results]
 
   def index
 
