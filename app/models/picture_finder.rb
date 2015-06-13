@@ -1,4 +1,6 @@
 class PictureFinder
+  attr_reader :lat, :long
+
   FOOD_TAGS = ["food", "foodporn", "yum", "yummy", "foodie", "instafood", "dinner", "lunch", "breakfast", "tasty", "delish", "delicious", "eating", "foodpic", "foodpics", "eat", "foodgasm", "foods"]
   IRRELEVANT_TAGS = ["dog", "sexy", "fashion", "swag", "funny", "gay"]
 
@@ -9,7 +11,7 @@ class PictureFinder
 
   def pictures
     pictures = Instagram.media_search(lat, long, count: 100)
-    food_related_pictures = food_related_pictures(pictures)
+    food_related_pictures(pictures)
   end
 
   def food_related_pictures(pictures)
@@ -28,7 +30,7 @@ class PictureFinder
   end
 
   def food_related_picture?(picture)
-    food_related_tags && filter_out_unrelated_tags
+    food_related_tags(picture) && filter_out_unrelated_tags(picture)
   end
 end
 

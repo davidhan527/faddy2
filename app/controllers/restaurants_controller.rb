@@ -6,7 +6,7 @@ class RestaurantsController < ApplicationController
   end
 
   def instagram_results
-    results = Instagram.media_search(lat, long, count: 100)
+    results = PictureFinder.new(lat: lat, long: long).pictures
     respond_to do |format|
       format.json {}
     end
