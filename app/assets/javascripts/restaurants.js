@@ -18,6 +18,9 @@ $(document).ready(function() {
         method: "POST",
         dataType: "json",
         data: { latitude: latitude, longitude: longitude }
+      }).done(function(response) {
+        console.log(response);
+        debugger;
       });
     });
 
