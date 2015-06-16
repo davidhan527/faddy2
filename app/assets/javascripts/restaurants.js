@@ -20,7 +20,6 @@ $(document).ready(function() {
         data: { latitude: latitude, longitude: longitude }
       }).done(function(response) {
         console.log(response);
-        debugger;
       });
     });
 

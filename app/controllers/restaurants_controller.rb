@@ -7,7 +7,7 @@ class RestaurantsController < ApplicationController
   def instagram_results
     @results = PictureFinder.new(lat: lat, long: long).pictures
     respond_to do |format|
-      format.json { render json: @results }
+      format.json {  render json: @results }
       format.html { redirect_to :restaurants }
     end
   end
