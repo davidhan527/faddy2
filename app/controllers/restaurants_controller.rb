@@ -8,6 +8,7 @@ class RestaurantsController < ApplicationController
     @results = PictureFinder.new(lat: lat, long: long).pictures
     respond_to do |format|
       format.json { render json: @results }
+      format.js {}
       format.html { redirect_to :restaurants }
     end
   end

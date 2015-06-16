@@ -15,6 +15,9 @@ $(document).ready(function() {
       $('.address_form').on('ajax:before', function(event, xhr, settings) {
         console.log(latitude);
         console.log(longitude);
+        var form = $(this);
+        form.append($('<input />',{name: 'latitude', value: latitude, type: 'hidden' }));
+        form.append($('<input />',{name: 'longitude', value: longitude, type: 'hidden' }));
       });
 
       $('.address_form').submit();
