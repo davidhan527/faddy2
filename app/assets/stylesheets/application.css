@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+.submit_address_form_button {
+  visibility: hidden;
+}
+
+
+
+

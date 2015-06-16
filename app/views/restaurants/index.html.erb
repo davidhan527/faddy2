@@ -2,8 +2,9 @@
 
 <p>Find me in app/views/restaurants/index.html.erb</p>
 
-<%= form_tag("/instagram_results", class: "address_form") do %>
+<%= form_tag("/instagram_results", class: "address_form", remote: true) do %>
   <%= label_tag(:address, "Search for:") %>
   <%= text_field_tag(:address) %>
-  <%= submit_tag("Search") %>
+  <%= button_tag("Search", class: "search_button", type: "button") %>
+  <%= submit_tag("Search", class: "submit_address_form_button") %>
 <% end %>

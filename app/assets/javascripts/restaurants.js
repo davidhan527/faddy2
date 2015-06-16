@@ -1,27 +1,24 @@
 $(document).ready(function() {
-  $(".address_form").on("submit", function(e) {
-    e.preventDefault();
-    var address,
-        geocoder,
-        latitude,
-        longitude;
+  var address,
+      geocoder,
+      latitude,
+      longitude;
 
+  $('.search_button').on('click', function() {
     address = $("#address").val();
     geocoder = new google.maps.Geocoder();
 
     geocoder.geocode( { 'address': address}, function(results, status) {
-      latitude = results[0].geometry.location.A
-      longitude = results[0].geometry.location.F
+      latitude = results[0].geometry.location.A;
+      longitude = results[0].geometry.location.F;
 
-      $.ajax({
-        url: "/instagram_results",
-        method: "POST",
-        dataType: "json",
-        data: { latitude: latitude, longitude: longitude }
-      }).done(function(response) {
-        console.log(response);
+      $('.address_form').on('ajax:before', function(event, xhr, settings) {
+        console.log(latitude);
+        console.log(longitude);
       });
-    });
 
+      $('.address_form').submit();
+    });
   });
+
 });
