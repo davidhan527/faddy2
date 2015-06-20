@@ -1,0 +1,17 @@
+<% @results.each do |result| %>
+    <div>
+      <img class="food_pic" src="<%=result.images.standard_resolution.url%>">
+    </div>
+      <div class="profile_section">
+        <div>
+          <h3 class="location"><%= result.location.name %> </h3>
+          <% if result.caption.present? && result.caption.has_key?("text") %>
+            <p class="caption"><%= result.caption["text"] %> </p>
+          <% end %>
+          <p class="likes">Likes: <%= result.likes["count"] %></p>
+          <p class="tags">Tags: #<%= result.tags.join(" #") %></p>
+          <img class="profile_pic" src="<%= result.user.profile_picture%>">
+          <h4 class="username" class="user"><%= result.user.full_name%> (@<%= result.user.username %>)</h4>
+        </div>
+      </div>
+<% end %>
