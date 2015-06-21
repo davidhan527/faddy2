@@ -7,6 +7,9 @@ class RestaurantsController < ApplicationController
   def instagram_results
     @results = PictureFinder.new(lat: lat, long: long).pictures
 
+    require 'pry'; binding.pry
+    save_restaurant_results
+
     respond_to do |format|
       format.json { render json: @results }
       format.js {}
@@ -15,6 +18,10 @@ class RestaurantsController < ApplicationController
   end
 
   private
+
+  def save_restaurant_results
+
+  end
 
   def connect_to_instagram
     client = Instagram.client(:access_token => session[:access_token])
