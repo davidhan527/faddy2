@@ -7,7 +7,6 @@ class RestaurantsController < ApplicationController
   def instagram_results
     @results = PictureFinder.new(lat: lat, long: long).pictures
 
-    require 'pry'; binding.pry
     save_restaurant_results
 
     respond_to do |format|
@@ -20,7 +19,12 @@ class RestaurantsController < ApplicationController
   private
 
   def save_restaurant_results
-
+    @results.each do |result|
+      restaurant = Restaurant.find_or_create_by(
+        name: result.location.name,
+        restaurant_location_id: result.location.id
+      )
+    end
   end
 
   def connect_to_instagram
