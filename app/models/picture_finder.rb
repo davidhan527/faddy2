@@ -15,10 +15,10 @@ class PictureFinder
   end
 
   def food_related_pictures(pictures)
-    pictures.select do |pic|
+    results = pictures.select do |pic|
       food_related_picture?(pic)
     end
-    #@sorted_results = pictures.sort_by {|hash| hash.likes["count"]}.uniq.reverse! #first(15)
+    results.sort_by {|hash| hash.likes["count"]}.uniq.reverse!
   end
 
   def food_related_tags(picture)
