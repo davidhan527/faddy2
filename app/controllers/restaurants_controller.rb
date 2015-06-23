@@ -20,10 +20,12 @@ class RestaurantsController < ApplicationController
 
   def save_restaurant_results
     @results.each do |result|
-      restaurant = Restaurant.find_or_create_by(
-        name: result.location.name,
-        restaurant_location_id: result.location.id
-      )
+      if name = result.location.name
+        restaurant = Restaurant.find_or_create_by(
+          name: name,
+          restaurant_location_id: result.location.id
+        )
+      end
     end
   end
 
