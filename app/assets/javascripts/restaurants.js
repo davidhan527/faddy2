@@ -9,9 +9,13 @@ $(document).ready(function() {
     geocoder = new google.maps.Geocoder();
 
     geocoder.geocode( { 'address': address}, function(results, status) {
-      debugger;
       latitude = results[0].geometry.location.A;
       longitude = results[0].geometry.location.F;
+
+      results[0].address_components.forEach(function(result) {
+        console.log(result.long_name);
+        console.log(result.types);
+      });
 
       $('.address_form').on('ajax:before', function(event, xhr, settings) {
         console.log(latitude);
