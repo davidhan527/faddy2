@@ -9,6 +9,7 @@ $(document).ready(function() {
     geocoder = new google.maps.Geocoder();
 
     geocoder.geocode( { 'address': address}, function(results, status) {
+      debugger;
       latitude = results[0].geometry.location.A;
       longitude = results[0].geometry.location.F;
 
